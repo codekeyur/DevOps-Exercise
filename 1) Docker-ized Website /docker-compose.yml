@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  httpd:
+    image: httpd
+    volumes: 
+       - website:/usr/local/apache2/htdocs
+    ports:
+       - 8001:80
+
+volumes:
+  website:
