@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - EDGE_PORT=4566
+      - SERVICES=lambda
+    ports:
+      - '4566-4583:4566-4583'
+    volumes:
+      - "./challenge-2:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    env_file:
+      - .env

@@ -1,0 +1,22 @@
+service: aws-python # NOTE: update this with your service name
+plugins:
+  - serverless-localstack
+  - serverless-offline
+
+frameworkVersion: '2 || 3'
+
+custom:
+  localstack:
+    debug: true
+    stages:
+      - local
+      - dev
+    endpointFile: localstack_endpoint.json
+provider:
+  name: aws
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+
+functions:
+  hello:
+    handler: handler.hello
