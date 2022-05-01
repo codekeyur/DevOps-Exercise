@@ -1,7 +1,7 @@
 provider "aws" {
   region = "us-east-1"
-  access_key = "6Ix63Ba7HV"
-  secret_key = "6Ix63Ba7HV"
+  access_key = "AccessKey"
+  secret_key = "SecretAccessKey"
   skip_credentials_validation = true
   skip_requesting_account_id = true
   skip_metadata_api_check = true
