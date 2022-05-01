@@ -1,18 +1,18 @@
 node {
     def hydra
 
-    stage('Clone repository') {
+    stage('Clone Github repository') {
       
 
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Build Docker image') {
   
        hydra = docker.build("keyur003/hydra-app")
     }
 
-    stage('Test image') {
+    stage('Test Docker image') {
   
 
         hydra-project.inside {
@@ -20,7 +20,7 @@ node {
         }
     }
 
-    stage('Push image') {
+    stage('Push Docker image') {
         
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             hydra.push("${env.BUILD_NUMBER}")
